@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl
+spec:
+  template:
+    metadata:
+      name: curl
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl
+        command: ["curl"]
+        args: ["-iH","\"Accept: text/plain\"","http://10.1.0.16:5000/"]
+      restartPolicy: Never
