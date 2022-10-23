@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: connector-updater-pod
+spec:
+   containers:
+   - name: connector-updater-flask-container01
+     image: ottalk/connector-updater:latest
+     ports:
+     - containerPort: 5000

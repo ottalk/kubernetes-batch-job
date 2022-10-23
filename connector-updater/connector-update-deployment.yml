@@ -1,0 +1,21 @@
+apiVersion: apps/v1  
+kind: Deployment   
+metadata:
+  labels:
+    app.kubernetes.io/name: connector-updater-lb
+  name: connector-updater-lb
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: connector-updater-lb
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: connector-updater-lb
+    spec:
+      containers:
+      - image: ottalk/connector-updater:latest
+        name: connector-updater-lb-container
+        ports:
+        - containerPort: 5000
